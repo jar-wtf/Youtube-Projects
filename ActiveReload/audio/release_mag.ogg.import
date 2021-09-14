@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/release_mag.ogg-500f5c72a81f662a728d6a848892ee6b.oggstr"
+
+[deps]
+
+source_file="res://audio/release_mag.ogg"
+dest_files=[ "res://.import/release_mag.ogg-500f5c72a81f662a728d6a848892ee6b.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

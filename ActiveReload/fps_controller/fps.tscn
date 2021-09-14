@@ -1,0 +1,69 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://font/roundy_rainbows.otf" type="DynamicFontData" id=1]
+[ext_resource path="res://fps_controller/fps.gd" type="Script" id=2]
+[ext_resource path="res://Entities/Uzi.tscn" type="PackedScene" id=3]
+
+
+
+
+
+
+[sub_resource type="CapsuleShape" id=1]
+radius = 0.936287
+
+[sub_resource type="CapsuleMesh" id=2]
+radius = 0.5
+
+[sub_resource type="DynamicFont" id=3]
+size = 70
+outline_size = 3
+outline_color = Color( 0.890196, 0.666667, 0.12549, 1 )
+font_data = ExtResource( 1 )
+
+[node name="FPS" type="KinematicBody"]
+script = ExtResource( 2 )
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, -1.62921e-07, -1, 0, 1, -1.62921e-07, 0, 1, 0 )
+shape = SubResource( 1 )
+
+[node name="MeshInstance" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, -1.62921e-07, -1, 0, 1, -1.62921e-07, 0, 1, 0 )
+mesh = SubResource( 2 )
+material/0 = null
+
+[node name="Head" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.76306, 0 )
+
+[node name="Camera" type="Camera" parent="Head"]
+fov = 90.0
+
+[node name="GunHolder" type="Spatial" parent="Head/Camera"]
+transform = Transform( -0.173648, 0, 0.984808, 0, 1, 0, -0.984808, 0, -0.173648, 1.0047, -0.193871, -1.09175 )
+
+[node name="Uzi" parent="Head/Camera/GunHolder" instance=ExtResource( 3 )]
+
+[node name="Control" type="Control" parent="Head/Camera"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AmmoCount" type="Label" parent="Head/Camera/Control"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -284.334
+margin_top = -114.27
+margin_right = -34.334
+margin_bottom = -22.2703
+custom_fonts/font = SubResource( 3 )
+text = "30 / 30"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
